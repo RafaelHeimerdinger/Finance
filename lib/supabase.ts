@@ -37,3 +37,11 @@ export interface Aluno {
   id: string; nome: string; modalidade: Modalidade; valor: number
   frequencia: string; dia_pagamento: number; ativo: boolean; obs: string; created_at?: string
 }
+export interface CategoriaOrcamento {
+  id: string; nome: string; icone: string; cor: string
+  orcamento_mensal: number; essencial: boolean; ativo: boolean; obs: string; created_at?: string
+}
+export interface GastoFlexivel {
+  id: string; categoria_id: string; descricao: string
+  valor: number; data_gasto: string; obs: string; created_at?: string
+}

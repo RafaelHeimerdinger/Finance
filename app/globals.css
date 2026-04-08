@@ -24,11 +24,51 @@
   --blue-bg: #0e1d3a;
   --blue-text: #60a5fa;
 }
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; margin: 0; }
-input, select, textarea { background: var(--bg3) !important; border: 1px solid var(--border) !important; border-radius: 8px !important; color: var(--text) !important; padding: 8px 12px !important; font-size: 13px !important; outline: none !important; width: 100%; }
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  margin: 0;
+  min-height: 100%;
+  overscroll-behavior: none;
+}
+
+input, select, textarea {
+  background: var(--bg3) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--text) !important;
+  padding: 10px 14px !important;
+  font-size: 16px !important;  /* evita zoom no iOS */
+  outline: none !important;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+
+input[type="color"] {
+  padding: 4px !important;
+  height: 42px;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  font-size: 14px !important;
+}
+
 input:focus, select:focus { border-color: var(--blue) !important; }
 select option { background: var(--bg3); }
-::-webkit-scrollbar { width: 4px; height: 4px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; height: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 2px; }
+
+/* Prevent body scroll when modal open handled by JS */
+body.modal-open { overflow: hidden; }
